@@ -1,0 +1,46 @@
+.FaHospitalO{
+	color: blue;
+}
+
+.display-item-container{
+}
+.display-item-header{
+	margin-bottom:20px;
+	text-align:left;
+	font-size:12px;
+}
+.display-item-body{
+	text-align:left;
+}
+.display-item-pop-over{
+	position:absolute;
+	top: 105%;
+	font-size:12px;
+	text-align:left;
+	border-radius:5px;
+	border-top-left-radius: 8px;
+	background-color: #263238;
+	color: #fff;
+	padding: 5px 5px;
+}
+.display-item-pop-over:before{
+	content:"";
+	display:block;
+	position:absolute;
+	left:2px;
+	top:-10px;
+	border: 6px solid;
+	border-color: transparent;
+	border-bottom-color:#263238;
+}
+
+.item-icon-style{
+  font-size:30px;
+  color: #2196F3;
+}
+.emoji-icon-style{
+	margin-top:5px;
+	font-size: 20px;
+	margin-left:3px;
+	color: #F9A825;
+}

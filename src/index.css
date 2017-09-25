@@ -3,3 +3,48 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.item-container{
+	border-radius:50%;
+	padding:10px;
+	background-color: #eee;
+	color: #fff;
+}
+/*Vis CSS Overrides*/
+.vis-foreground .vis-group{
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 1px solid #274a60;
+  height: 100px !important;
+  background-color: #fff;
+  border: 1px solid #eee;
+}
+.vis-foreground .vis-group:before{
+	position:absolute;
+	content:"";
+	display:block;
+	left:0px;
+	width:100%;
+	height:0px;
+	border:1px solid #01579B;
+	top: 40%;
+}
+.vis-label{
+	height: 100px !important;
+}
+.vis-label .vis-inner{
+	margin-top:25px;
+}
+/*Custom CSS for overrides*/
+.display-item.vis-point{
+  border:none;
+  top:7.5px !important;
+}
+.display-item.vis-dot{
+	border-color: #222;
+	height:8px;
+	top:calc(40% - 2px) !important;
+	border-width:1px !important;
+}
+.display-item .vis-item-content{
+  margin-left:-17px !important;
+}
