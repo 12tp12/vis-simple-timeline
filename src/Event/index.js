@@ -44,7 +44,6 @@ class Event extends React.Component{
 						style={{color: vote=="Up"?"#2E7D32":"#c62828"}}
 					/>
 				</div>
-				<EventInfo info={content.eventInfo || []}/>
 			</div>
 		);
 	}
