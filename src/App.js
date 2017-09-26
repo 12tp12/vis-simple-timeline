@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOMServer from 'react-dom/server';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import vis from 'vis';
@@ -6,6 +7,7 @@ import './App.css';
 import Event from './Event/index';
 import Goal from './Goal/index';
 import '../node_modules/vis/dist/vis.min.css';
+
 var tasks = [
   {
     id: 1,
@@ -78,17 +80,28 @@ var goals = [
     content: "Phase One",
     className:"vis-group-bg",
   },
-  /*{
+  {
     id: 2,
     content: "Phase Two"
-  }*/
+  }
 ]
+
+const ItemToolTip = (info) => (
+  <div className="display-item-pop-over">
+    {Object.keys(info).map((key) => {
+      if(info.hasOwnProperty(key)){
+        return <div>{key} : {info[key]}</div>
+      }
+    })}
+  </div>
+);
 
 
 const prep = (el) => {
   var options = {
     orientation: 'top',
-    maxHeight: 400,
+    maxHeight: 300,
+    overflow: "visible",
     start: new Date("04-01-2017"),
     end: new Date("04-31-2017"),
     editable: true,
@@ -103,7 +116,10 @@ const prep = (el) => {
       return ReactDOM.render(<Goal group={group} />, element);
     }
   };
-  var taskSet = new vis.DataSet(tasks);
+  
+  var taskSet = new vis.DataSet(tasks.map( task =>
+    Object.assign(task,{title: ReactDOMServer.renderToStaticMarkup(ItemToolTip(task.content.eventInfo))})
+  ));
   var goalSet = new vis.DataSet(goals);
   var timeline = new vis.Timeline(el, taskSet, goalSet, options);
 }

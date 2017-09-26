@@ -25,22 +25,6 @@ const formatDate = (date) => {
 	return `${dateParsed} ${timeParsed}`;
 }
 
-const EventInfo = ({info,isVisible}) => {
-	if(isVisible){
-		return (
-			<div className="display-item-pop-over">
-				{Object.keys(info).map((key) => {
-					if(info.hasOwnProperty(key)){
-						return <div>{key} : {info[key]}</div>
-					}
-				})}
-			</div>
-		);
-	}else{
-		return <span></span>;
-	}
-}
-
 class Event extends React.Component{
 	render(){
 		let {item, item:{content}} = this.props;
